@@ -17,7 +17,11 @@ while principal > 0:
         extra = 1000
     else:
         extra = 0
+    if principal * (1 + rate/12) < payment + extra:
+        payment = principal * (1 + rate / 12)
+        extra = 0
     principal = principal * (1+rate/12) - (payment + extra)
     total_paid = total_paid + payment + extra
+    print(month, round(total_paid, 2), round(principal, 2))
 
-print('Total paid', round(total_paid, 2))
+print('Total Paid', round(total_paid, 2))
